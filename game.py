@@ -73,56 +73,86 @@ class Zaidimas:
         if b1["text"] == "X" and b2["text"] == "X" and b3["text"] == "X":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+            self.reset()
         elif b4["text"] == "X" and b5["text"] == "X" and b6["text"] == "X":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+            self.reset()
         elif b7["text"] == "X" and b8["text"] == "X" and b9["text"] == "X":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+            self.reset()
         elif b1["text"] == "X" and b4["text"] == "X" and b7["text"] == "X":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+            self.reset()
         elif b2["text"] == "X" and b5["text"] == "X" and b8["text"] == "X":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+            self.reset()
         elif b3["text"] == "X" and b6["text"] == "X" and b9["text"] == "X":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+            self.reset()
         elif b1["text"] == "X" and b5["text"] == "X" and b9["text"] == "X":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+            self.reset()
         elif b3["text"] == "X" and b5["text"] == "X" and b7["text"] == "X":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
-        elif b1["text"] == "O" and b2["text"] == "O" and b3["text"] == "O":
-            laimejimas = True
+            self.reset()
 
             # Tikrinami "O" laimėjimai:
+        elif b1["text"] == "O" and b2["text"] == "O" and b3["text"] == "O":
+            laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+            self.reset()
         elif b4["text"] == "O" and b5["text"] == "O" and b6["text"] == "O":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+            self.reset()
         elif b7["text"] == "O" and b8["text"] == "O" and b9["text"] == "O":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+            self.reset()
         elif b1["text"] == "O" and b4["text"] == "O" and b7["text"] == "O":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+            self.reset()
         elif b2["text"] == "O" and b5["text"] == "O" and b8["text"] == "O":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+            self.reset()
         elif b3["text"] == "O" and b6["text"] == "O" and b9["text"] == "O":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+            self.reset()
         elif b1["text"] == "O" and b5["text"] == "O" and b9["text"] == "O":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+            self.reset()
         elif b3["text"] == "O" and b5["text"] == "O" and b7["text"] == "O":
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+            self.reset()
         elif ejimu_skaicius == 9 and laimejimas == False:
             messagebox.showinfo("Kryžiukai - Nuliukai", "Lygiosios!")
+            self.reset()
 
+
+    def reset(self):
+        global b1, b2, b3, b4, b5, b6, b7, b8, b9
+        ejimu_skaicius = 1
+        b1["text"] = " "
+        b2["text"] = " "
+        b3["text"] = " "
+        b4["text"] = " "
+        b5["text"] = " "
+        b6["text"] = " "
+        b7["text"] = " "
+        b8["text"] = " "
+        b9["text"] = " "
 
 Zaidimas()
 
