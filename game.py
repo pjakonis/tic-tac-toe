@@ -12,27 +12,28 @@ langas.title("Kryžiukai - Nuliukai")
 class Zaidimas:
     def __init__(self):
         global clicked
+        global b1, b2, b3, b4, b5, b6, b7, b8, b9
         clicked = True
 
         # 9 žaidimo mygtukai:
         b1 = Button(langas, text=" ", font=("Arial", 25), height=5, width=10,
-                    command=lambda: self.kieno_eilė(b1))
+                    command=lambda: self.kieno_eile(b1))
         b2 = Button(langas, text=" ", font=("Arial", 25), height=5, width=10,
-                    command=lambda: self.kieno_eilė(b2))
+                    command=lambda: self.kieno_eile(b2))
         b3 = Button(langas, text=" ", font=("Arial", 25), height=5, width=10,
-                    command=lambda: self.kieno_eilė(b3))
+                    command=lambda: self.kieno_eile(b3))
         b4 = Button(langas, text=" ", font=("Arial", 25), height=5, width=10,
-                    command=lambda: self.kieno_eilė(b4))
+                    command=lambda: self.kieno_eile(b4))
         b5 = Button(langas, text=" ", font=("Arial", 25), height=5, width=10,
-                    command=lambda: self.kieno_eilė(b5))
+                    command=lambda: self.kieno_eile(b5))
         b6 = Button(langas, text=" ", font=("Arial", 25), height=5, width=10,
-                    command=lambda: self.kieno_eilė(b6))
+                    command=lambda: self.kieno_eile(b6))
         b7 = Button(langas, text=" ", font=("Arial", 25), height=5, width=10,
-                    command=lambda: self.kieno_eilė(b7))
+                    command=lambda: self.kieno_eile(b7))
         b8 = Button(langas, text=" ", font=("Arial", 25), height=5, width=10,
-                    command=lambda: self.kieno_eilė(b8))
+                    command=lambda: self.kieno_eile(b8))
         b9 = Button(langas, text=" ", font=("Arial", 25), height=5, width=10,
-                    command=lambda: self.kieno_eilė(b9))
+                    command=lambda: self.kieno_eile(b9))
         # Mygtukų išdėstymas:
         b1.grid(row=0, column=0)
         b2.grid(row=0, column=1)
@@ -45,16 +46,75 @@ class Zaidimas:
         b9.grid(row=2, column=2)
 
     # Mygtukų funkcija kuri nustato kokia reikšmė bus nuspaudus mygtuką. True arba False.
-    def kieno_eilė(self, b):
+    def kieno_eile(self, b):
         global clicked
         if b["text"] == " " and clicked == True:
             b["text"] = "X"
             clicked = False
+            self.tikrinamas_laimejimas()
         elif b["text"] == " " and clicked == False:
             b["text"] = "O"
             clicked = True
+            self.tikrinamas_laimejimas()
         else:
-            messagebox.showerror("Kryžiukai - Nuliukai", "Ei, šis langelis jau pasirinktas!\n Pasirink tuščią langelį!")
+            messagebox.showerror("Kryžiukai - Nuliukai", "Ei, šis langelis jau pasirinktas!\n Pasirink tuščią langelį!") # Pranešimas, jei mygtukas jau pasirinktas.
+
+
+    def tikrinamas_laimejimas(self):  # Yra 8 galimi laimėjimo variantai.
+        global laimejimas
+        laimejimas = False
+
+        #  Tikrinami "X" laimėjimai:
+        if b1["text"] == "X" and b2["text"] == "X" and b3["text"] == "X":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+        elif b4["text"] == "X" and b5["text"] == "X" and b6["text"] == "X":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+        elif b7["text"] == "X" and b8["text"] == "X" and b9["text"] == "X":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+        elif b1["text"] == "X" and b4["text"] == "X" and b7["text"] == "X":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+        elif b2["text"] == "X" and b5["text"] == "X" and b8["text"] == "X":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+        elif b3["text"] == "X" and b6["text"] == "X" and b9["text"] == "X":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+        elif b1["text"] == "X" and b5["text"] == "X" and b9["text"] == "X":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+        elif b3["text"] == "X" and b5["text"] == "X" and b7["text"] == "X":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "X laimėjo!")
+        elif b1["text"] == "O" and b2["text"] == "O" and b3["text"] == "O":
+            laimejimas = True
+
+            # Tikrinami "O" laimėjimai:
+            messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+        elif b4["text"] == "O" and b5["text"] == "O" and b6["text"] == "O":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+        elif b7["text"] == "O" and b8["text"] == "O" and b9["text"] == "O":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+        elif b1["text"] == "O" and b4["text"] == "O" and b7["text"] == "O":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+        elif b2["text"] == "O" and b5["text"] == "O" and b8["text"] == "O":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+        elif b3["text"] == "O" and b6["text"] == "O" and b9["text"] == "O":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+        elif b1["text"] == "O" and b5["text"] == "O" and b9["text"] == "O":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
+        elif b3["text"] == "O" and b5["text"] == "O" and b7["text"] == "O":
+            laimejimas = True
+            messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
 
 
 Zaidimas()
