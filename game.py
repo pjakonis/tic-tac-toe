@@ -1,6 +1,7 @@
 """Žaidimas "Kryžiukai - Nuliukai". Skirtas žaisti dviems žaidėjams."""
 
 from tkinter import *
+from tkinter import messagebox
 
 # Žaidimo langas:
 langas = Tk()
@@ -52,6 +53,8 @@ class Zaidimas:
         elif b["text"] == " " and clicked == False:
             b["text"] = "O"
             clicked = True
+        else:
+            messagebox.showerror("Kryžiukai - Nuliukai", "Ei, šis langelis jau pasirinktas!\n Pasirink tuščią langelį!")
 
 
 Zaidimas()
