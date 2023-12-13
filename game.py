@@ -13,8 +13,7 @@ class Zaidimas:
     def __init__(self):
         global clicked
         global b1, b2, b3, b4, b5, b6, b7, b8, b9
-        global ejimu_skaicius  # skaičiuoja kiek ėjimų padarė žaidėjai, kad nustatyti lygiasias.
-        ejimu_skaicius = 1
+        self.ejimu_skaicius = 0
         clicked = True
 
         # 9 žaidimo mygtukai:
@@ -54,16 +53,17 @@ class Zaidimas:
         if b["text"] == " " and clicked == True:
             b["text"] = "X"
             clicked = False
+            self.ejimu_skaicius += 1
             self.tikrinamas_laimejimas()
-            ejimu_skaicius += 1
         elif b["text"] == " " and clicked == False:
             b["text"] = "O"
             clicked = True
+            self.ejimu_skaicius += 1
             self.tikrinamas_laimejimas()
-            ejimu_skaicius += 1
         else:
             messagebox.showerror("Kryžiukai - Nuliukai",
                                  "Ei, šis langelis jau pasirinktas!\n Pasirink tuščią langelį!")  # Pranešimas, jei mygtukas jau pasirinktas.
+        print(self.ejimu_skaicius)
 
     def tikrinamas_laimejimas(self):  # Yra 8 galimi laimėjimo variantai.
         global laimejimas
@@ -136,14 +136,17 @@ class Zaidimas:
             laimejimas = True
             messagebox.showinfo("Kryžiukai - Nuliukai", "O laimėjo!")
             self.reset()
-        elif ejimu_skaicius == 9 and laimejimas == False:
+        elif self.ejimu_skaicius == 9 and laimejimas == False:
             messagebox.showinfo("Kryžiukai - Nuliukai", "Lygiosios!")
             self.reset()
 
-
     def reset(self):
         global b1, b2, b3, b4, b5, b6, b7, b8, b9
-        ejimu_skaicius = 1
+        global clicked
+        global laimejimas
+        self.ejimu_skaicius = 0
+        clicked = True
+        laimejimas = False
         b1["text"] = " "
         b2["text"] = " "
         b3["text"] = " "
@@ -153,6 +156,7 @@ class Zaidimas:
         b7["text"] = " "
         b8["text"] = " "
         b9["text"] = " "
+
 
 Zaidimas()
 
