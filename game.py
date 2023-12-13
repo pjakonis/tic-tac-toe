@@ -1,0 +1,1 @@
+"""Žaidimas "Kryžiukai - Nuliukai". Skirtas žaisti dviems žaidėjams."""
