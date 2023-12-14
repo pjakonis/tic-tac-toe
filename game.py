@@ -3,18 +3,17 @@
 from tkinter import *
 from tkinter import messagebox
 
-# Žaidimo langas:
 langas = Tk()
 langas.title("Kryžiukai - Nuliukai")
 
 meniu = Menu(langas)
 langas.config(menu=meniu)
 
-# Create an options menu
-kaskada = Menu(meniu, tearoff=False)
-meniu.add_cascade(label="Meniu", menu=kaskada)
-kaskada.add_command(label="Naujas žaidimas")
-kaskada.add_command(label="Išeiti", command=langas.quit)
+submeniu = Menu(meniu, tearoff=False)
+meniu.add_cascade(label="Meniu", menu=submeniu)
+submeniu.add_command(label="Naujas žaidimas", command=lambda: Zaidimas().naujas_zaidimas())
+submeniu.add_separator()
+submeniu.add_command(label="Išeiti", command=langas.quit)
 
 
 # Klasė, kurioje priskiriami 9 žaidimo mygtukai ir jų funkcija juos nuspaudus "TRUE - FALSE" tvarka.
@@ -47,7 +46,7 @@ class Zaidimas:
         b9 = Button(langas, text=" ", font=("Arial", 25), height=5, width=10,
                     command=lambda: self.kieno_eile(b9))
         # Rezultato užrašas:
-        self.rezultatas = Label(langas, text="")
+        self.rezultatas = Label(langas, text="X - 0   :   O - 0")
         self.rezultatas.grid(row=3, column=1)
 
         # Mygtukų išdėstymas:
@@ -67,7 +66,6 @@ class Zaidimas:
     # Mygtukų funkcija kuri nustato kokia reikšmė bus nuspaudus mygtuką. True arba False.
     def kieno_eile(self, b):
         global clicked
-        global ejimu_skaicius
         if b["text"] == " " and clicked == True:
             b["text"] = "X"
             clicked = False
@@ -191,6 +189,11 @@ class Zaidimas:
         b7["text"] = " "
         b8["text"] = " "
         b9["text"] = " "
+
+    def naujas_zaidimas(self):
+        self.reset()
+        self.X_laimejimai = 0
+        self.O_laimejimai = 0
 
 
 Zaidimas()
