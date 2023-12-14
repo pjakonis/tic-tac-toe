@@ -7,6 +7,15 @@ from tkinter import messagebox
 langas = Tk()
 langas.title("Kryžiukai - Nuliukai")
 
+meniu = Menu(langas)
+langas.config(menu=meniu)
+
+# Create an options menu
+kaskada = Menu(meniu, tearoff=False)
+meniu.add_cascade(label="Meniu", menu=kaskada)
+kaskada.add_command(label="Naujas žaidimas")
+kaskada.add_command(label="Išeiti", command=langas.quit)
+
 
 # Klasė, kurioje priskiriami 9 žaidimo mygtukai ir jų funkcija juos nuspaudus "TRUE - FALSE" tvarka.
 class Zaidimas:
@@ -38,8 +47,8 @@ class Zaidimas:
         b9 = Button(langas, text=" ", font=("Arial", 25), height=5, width=10,
                     command=lambda: self.kieno_eile(b9))
         # Rezultato užrašas:
-        rezultatas = Label(langas, text="")
-        rezultatas.grid(row=3, column=1)
+        self.rezultatas = Label(langas, text="")
+        self.rezultatas.grid(row=3, column=1)
 
         # Mygtukų išdėstymas:
         b1.grid(row=0, column=0)
@@ -166,7 +175,7 @@ class Zaidimas:
 
 
     def reset(self):
-        # self.rezultatas["text"] = "Labas"
+        self.rezultatas["text"] = f"X - {self.X_laimejimai}   :   O - {self.O_laimejimai}"
         global b1, b2, b3, b4, b5, b6, b7, b8, b9
         global clicked
         global laimejimas
