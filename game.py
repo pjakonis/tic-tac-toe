@@ -35,25 +35,25 @@ class Zaidimas:
         messagebox.showinfo("Kryžiukai-Nuliukai", f"Eni beni, diki daki...\n\nPradeda {'X' if clicked else 'O'}!")
 
         # 9 žaidimo mygtukai:
-        b1 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10,
+        b1 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10, bg="white",
                     command=lambda: self.kieno_eile(b1))
-        b2 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10,
+        b2 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10, bg="white",
                     command=lambda: self.kieno_eile(b2))
-        b3 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10,
+        b3 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10, bg="white",
                     command=lambda: self.kieno_eile(b3))
 
-        b4 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10,
+        b4 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10, bg="white",
                     command=lambda: self.kieno_eile(b4))
-        b5 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10,
+        b5 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10, bg="white",
                     command=lambda: self.kieno_eile(b5))
-        b6 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10,
+        b6 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10, bg="white",
                     command=lambda: self.kieno_eile(b6))
 
-        b7 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10,
+        b7 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10, bg="white",
                     command=lambda: self.kieno_eile(b7))
-        b8 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10,
+        b8 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10, bg="white",
                     command=lambda: self.kieno_eile(b8))
-        b9 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10,
+        b9 = Button(langas, text=" ", font=("San Francisco", 25), height=5, width=10, bg="white",
                     command=lambda: self.kieno_eile(b9))
 
         # Mygtukų išdėstymas:
@@ -101,12 +101,18 @@ class Zaidimas:
         if b1["text"] == "X" and b2["text"] == "X" and b3["text"] == "X":
             laimejimas = True
             clicked = True
+            b1["bg"] = "Green"
+            b2["bg"] = "Green"
+            b3["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai", "X laimėjo!\n\nNuliuk, neliūdėk, bet kitą žaidimą pradeda X!")
             self.X_laimejimai += 1
             self.reset()
         elif b4["text"] == "X" and b5["text"] == "X" and b6["text"] == "X":
             laimejimas = True
             clicked = True
+            b4["bg"] = "Green"
+            b5["bg"] = "Green"
+            b6["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai", "X laimėjo!\n\nŽaidimą pradeda X!")
             self.X_laimejimai += 1
             self.reset()
@@ -114,12 +120,18 @@ class Zaidimas:
         elif b7["text"] == "X" and b8["text"] == "X" and b9["text"] == "X":
             laimejimas = True
             clicked = True
+            b7["bg"] = "Green"
+            b8["bg"] = "Green"
+            b9["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai", "X laimėjo!\n\nX pradeda kitą žaidimą!")
             self.X_laimejimai += 1
             self.reset()
         elif b1["text"] == "X" and b4["text"] == "X" and b7["text"] == "X":
             laimejimas = True
             clicked = True
+            b1["bg"] = "Green"
+            b4["bg"] = "Green"
+            b7["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai", "X laimėjo!\n\nBūūū, Nuliuk, kitą žaidimą pradeda X!")
             self.X_laimejimai += 1
             self.reset()
@@ -127,12 +139,18 @@ class Zaidimas:
         elif b2["text"] == "X" and b5["text"] == "X" and b8["text"] == "X":
             laimejimas = True
             clicked = True
+            b2["bg"] = "Green"
+            b5["bg"] = "Green"
+            b8["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai", "X laimėjo!\n\nKas laimi, tas ir pradeda - X!")
             self.X_laimejimai += 1
             self.reset()
         elif b3["text"] == "X" and b6["text"] == "X" and b9["text"] == "X":
             laimejimas = True
             clicked = True
+            b3["bg"] = "Green"
+            b6["bg"] = "Green"
+            b9["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai", "X laimėjo!\n\nNuliuk, pasistenk! X pradeda kitą žaidimą!")
             self.X_laimejimai += 1
             self.reset()
@@ -140,6 +158,9 @@ class Zaidimas:
         elif b1["text"] == "X" and b5["text"] == "X" and b9["text"] == "X":
             laimejimas = True
             clicked = True
+            b1["bg"] = "Green"
+            b5["bg"] = "Green"
+            b9["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai",
                                 "X laimėjo!\n\nSarmata, Nuliuk... \n\nnes kitą žaidimą pradeda X!")
             self.X_laimejimai += 1
@@ -147,6 +168,9 @@ class Zaidimas:
         elif b3["text"] == "X" and b5["text"] == "X" and b7["text"] == "X":
             laimejimas = True
             clicked = True
+            b3["bg"] = "Green"
+            b5["bg"] = "Green"
+            b7["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai",
                                 "X laimėjo!\n\nKas čia nutiko? Nuliuk, užsisapnavai?\n\nKitą žaidimą pradeda X!")
             self.X_laimejimai += 1
@@ -156,6 +180,9 @@ class Zaidimas:
         elif b1["text"] == "O" and b2["text"] == "O" and b3["text"] == "O":
             laimejimas = True
             clicked = False
+            b1["bg"] = "Green"
+            b2["bg"] = "Green"
+            b3["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai",
                                 "O laimėjo!\n\nCha-cha-cha, Kryžiuk!\n\nKitą žaidimą pradeda O!\n")
             self.O_laimejimai += 1
@@ -163,6 +190,9 @@ class Zaidimas:
         elif b4["text"] == "O" and b5["text"] == "O" and b6["text"] == "O":
             laimejimas = True
             clicked = False
+            b4["bg"] = "Green"
+            b5["bg"] = "Green"
+            b6["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai", "O laimėjo!\n\nKas laimi, tas ir pradeda - O!\n")
             self.O_laimejimai += 1
             self.reset()
@@ -170,12 +200,18 @@ class Zaidimas:
         elif b7["text"] == "O" and b8["text"] == "O" and b9["text"] == "O":
             laimejimas = True
             clicked = False
+            b7["bg"] = "Green"
+            b8["bg"] = "Green"
+            b9["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai", "O laimėjo!\n\nŽaidimą pradeda O!\n")
             self.O_laimejimai += 1
             self.reset()
         elif b1["text"] == "O" and b4["text"] == "O" and b7["text"] == "O":
             laimejimas = True
             clicked = False
+            b1["bg"] = "Green"
+            b4["bg"] = "Green"
+            b7["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai", "O laimėjo!\n\nKryžiuk, pasistenk! O pradeda kitą žaidimą!\n")
             self.O_laimejimai += 1
             self.reset()
@@ -183,6 +219,9 @@ class Zaidimas:
         elif b2["text"] == "O" and b5["text"] == "O" and b8["text"] == "O":
             laimejimas = True
             clicked = False
+            b2["bg"] = "Green"
+            b5["bg"] = "Green"
+            b8["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai",
                                 "O laimėjo!\n\nKryžiukas miega. Zzz...\n\n Žaidimą pradeda O!\n")
             self.O_laimejimai += 1
@@ -190,6 +229,9 @@ class Zaidimas:
         elif b3["text"] == "O" and b6["text"] == "O" and b9["text"] == "O":
             laimejimas = True
             clicked = False
+            b3["bg"] = "Green"
+            b6["bg"] = "Green"
+            b9["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai",
                                 "O laimėjo!\n\nKryžiuk, užsisapnavai?\n\nKitą žaidimą pradeda O!\n")
             self.O_laimejimai += 1
@@ -198,12 +240,18 @@ class Zaidimas:
         elif b1["text"] == "O" and b5["text"] == "O" and b9["text"] == "O":
             laimejimas = True
             clicked = False
+            b1["bg"] = "Green"
+            b5["bg"] = "Green"
+            b9["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai", "O laimėjo!\n\nTodėl kitą žaidimą pradeda O!\n")
             self.O_laimejimai += 1
             self.reset()
         elif b3["text"] == "O" and b5["text"] == "O" and b7["text"] == "O":
             laimejimas = True
             clicked = False
+            b3["bg"] = "Green"
+            b5["bg"] = "Green"
+            b7["bg"] = "Green"
             messagebox.showinfo("Kryžiukai-Nuliukai", "O laimėjo!\n\nLaimėjai, tai ir pradėk, O!\n")
             self.O_laimejimai += 1
             self.reset()
@@ -211,6 +259,15 @@ class Zaidimas:
         # Tikrinamos lygiosios:
         elif self.ejimu_skaicius == 9 and laimejimas == False:
             clicked = random.choice([True, False])
+            b1["bg"] = "yellow"
+            b2["bg"] = "yellow"
+            b3["bg"] = "yellow"
+            b4["bg"] = "yellow"
+            b5["bg"] = "yellow"
+            b6["bg"] = "yellow"
+            b7["bg"] = "yellow"
+            b8["bg"] = "yellow"
+            b9["bg"] = "yellow"
             messagebox.showinfo("Kryžiukai-Nuliukai",
                                 f"Lygiosios!\n\nBurtų keliu kitą ėjimą pradeda {'X' if clicked else 'O'}!\n")
             self.reset()
@@ -223,14 +280,23 @@ class Zaidimas:
         self.ejimu_skaicius = 0
         laimejimas = False
         b1["text"] = " "
+        b1["bg"] = "white"
         b2["text"] = " "
+        b2["bg"] = "white"
         b3["text"] = " "
+        b3["bg"] = "white"
         b4["text"] = " "
+        b4["bg"] = "white"
         b5["text"] = " "
+        b5["bg"] = "white"
         b6["text"] = " "
+        b6["bg"] = "white"
         b7["text"] = " "
+        b7["bg"] = "white"
         b8["text"] = " "
+        b8["bg"] = "white"
         b9["text"] = " "
+        b9["bg"] = "white"
 
     # Naujas žaidimas, atliekantis restart funciją ir restartuoja rezultatų kintamuosius:
     def naujas_zaidimas(self):
