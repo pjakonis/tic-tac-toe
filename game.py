@@ -1,4 +1,5 @@
-"""Žaidimas "Kryžiukai - Nuliukai". Skirtas žaisti dviems žaidėjams."""
+"""Žaidimas "Kryžiukai - Nuliukai". Skirtas žaisti dviems žaidėjams.
+Pridedu papildomus komentarus nes testuoju VS Code programą."""
 
 from tkinter import *
 from tkinter import messagebox
